@@ -1,6 +1,8 @@
 // This function will check for the tab that is being passed and load the content
 // accordingly to the current tab the user is in.
 
+import { contacts } from "./config";
+
 function mainLoad(tab, contents) {
     const contentHolder = document.getElementById('content');
     contentHolder.textContent = '';
@@ -24,18 +26,28 @@ function mainLoad(tab, contents) {
 
     if (tab === 'Order') {
         let tableContainer = document.createElement('div');
-        let tableWrapper = document.createElement('table');
-        let tableTitle = document.createElement('caption');
-
-        tableTitle.textContent = 'Meals of the day!';
-
         tableContainer.classList.add('second-content');
-        tableWrapper.classList.add('menu');
-
-        tableWrapper.appendChild(tableTitle)
-        tableContainer.appendChild(tableWrapper);
         contentHolder.appendChild(tableContainer);
+
         contentLoader.loadTableContent(contents);
+    }
+
+    if (tab === 'Contact') {
+        let title = document.createElement('p');
+        let contactContainerWrapper = document.createElement('div');
+        let contactContainer = document.createElement('div');
+
+        title.classList.add('contact-title');
+        contactContainer.classList.add('contact-wrapper');
+        contactContainerWrapper.classList.add('contact-container-wrapper');
+
+        title.textContent = 'Meet our teams...'
+
+        contactContainerWrapper.appendChild(title);
+        contactContainerWrapper.appendChild(contactContainer);
+        contentHolder.appendChild(contactContainerWrapper);
+
+        contentLoader.loadContact(contents);
     }
     
 }
@@ -100,47 +112,97 @@ const contentLoader = (function() {
     }
 
     // Load table content
-    function loadTableContent(contents) {
-        let table = document.querySelector('table');
-        let tableHeader = document.createElement('thead');
-        let tableBody = document.createElement('tbody');
-        let rowHeader = document.createElement('tr');
-        let headerData = ['Meals', 'Price'];
+    function loadTableContent(category) {
+        category.forEach((contents) => {
+            let tableWrapper = document.createElement('table');
+            let tableTitle = document.createElement('caption');
+            let tableHeader = document.createElement('thead');
+            let tableBody = document.createElement('tbody');
+            let rowHeader = document.createElement('tr');
+            let headerData;
 
-        headerData.forEach((value) => {
-            let headerContent = document.createElement('th');
-            headerContent.textContent = value;
-
-            rowHeader.appendChild(headerContent);
-        })
-
-        rowHeader.classList.add('menu-header');
-
-        tableHeader.appendChild(rowHeader);
-        table.appendChild(tableHeader);
-        contents.forEach((content) => {
-            let firstRow = document.createElement('tr');
-            let secondRow = document.createElement('tr');
-
-            for ( let value in content ) {
-                let data = document.createElement('td');
-                if ( value === 'name' || value === 'price' ) {
-                    data.textContent = content[value];
-                    firstRow.appendChild(data);
-                } else if ( value === 'recipe' ) {
-                    data.textContent = content[value];
-                    secondRow.appendChild(data);
-                }
-            }
+            tableWrapper.classList.add('menu');
             
-            tableBody.appendChild(firstRow);
-            tableBody.appendChild(secondRow);
-        })
+            tableWrapper.appendChild(tableTitle)
 
-        table.appendChild(tableBody);
+            if ( category[0] === contents ) {
+                tableTitle.textContent = 'Valueable Sets!';
+                headerData = ['Sets', 'Price'];
+            } else if ( category[1] === contents ) {
+                tableTitle.textContent = 'Meals of the day!';
+                headerData = [ 'Meals', 'Price']
+            } else if ( category[2] === contents ) {
+                tableTitle.textContent = 'Satiate your appetite';
+                headerData = [ 'Appetizers', 'Price']
+            } else if ( category[3] === contents) {
+                tableTitle.textContent = 'Lactated by Puthyrath :D';
+                headerData = [ 'Drinks', 'Price']
+            } else if ( category[4] === contents) {
+                tableTitle.textContent = 'Always room for it...';
+                headerData = [ 'Desserts', 'Price']
+            }
+
+            headerData.forEach((value) => {
+                let headerContent = document.createElement('th');
+                headerContent.textContent = value;
+
+                rowHeader.appendChild(headerContent);
+            })
+
+            rowHeader.classList.add('menu-header');
+
+            tableHeader.appendChild(rowHeader);
+            tableWrapper.appendChild(tableHeader);
+
+            contents.forEach((content) => {
+                let firstRow = document.createElement('tr');
+                let secondRow = document.createElement('tr');
+
+                for ( let value in content ) {
+                    let data = document.createElement('td');
+                    if ( value === 'name' || value === 'price' ) {
+                        data.textContent = content[value];
+                        firstRow.appendChild(data);
+                    } else if ( value === 'recipe' ) {
+                        data.textContent = content[value];
+                        secondRow.appendChild(data);
+                    }
+                }
+                
+                tableBody.appendChild(firstRow);
+                tableBody.appendChild(secondRow);
+            })
+
+            tableWrapper.appendChild(tableBody);
+            document.querySelector('.second-content').appendChild(tableWrapper);
+        })
     }
 
-    return {loadPost, unloadContent, loadTableContent, loadMap};
+    function loadContact(contents) {
+        contents.forEach((content) => {
+            let contactWrapper = document.querySelector('.contact-wrapper')
+            let contactBox = document.createElement('span');
+            let name = document.createElement('p');
+            let position = document.createElement('p');
+            let number = document.createElement('p');
+
+            contactBox.classList.add('contact-box');
+            name.classList.add('name');
+            position.classList.add('position');
+            number.classList.add('number');
+
+            name.textContent = content['name'];
+            position.textContent = content['position'];
+            number.textContent = content['contact'];
+
+            contactBox.appendChild(name);
+            contactBox.appendChild(position);
+            contactBox.appendChild(number);
+            contactWrapper.appendChild(contactBox);
+        })
+    }
+
+    return {loadPost, unloadContent, loadTableContent, loadContact, loadMap};
 })();
 
 

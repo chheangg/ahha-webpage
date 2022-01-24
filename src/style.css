@@ -127,13 +127,17 @@ body {
     background-color: rgba(1,22,39,1);
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding-top: 48px;
 }
+
 .menu {
-    margin: 48px 0;
     color: white;
     width: 60vw;
     border-collapse: collapse;  
+    margin: 24px 0;
 }
 
 caption {
@@ -185,6 +189,62 @@ tbody tr:nth-child(even) td {
     font-family: 'Roboto';
     font-weight: 300;
     font-size: 24px;
+}
+
+.contact-container-wrapper {
+    width: 60vw;
+    margin: 0 auto;
+}
+
+.contact-title {
+    margin-top: 16px;
+    margin-left: 24px;
+    margin-right: 24px;
+    font-family: 'Roboto';
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(1,22,39,1);
+    border-bottom: 5px solid rgba(1,22,39,1);
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 36px;
+    padding: 24px;
+}
+
+.contact-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: 	white;
+    padding: 24px 0;
+    border-radius: 15px;
+    border: 0.25px solid gainsboro;
+}
+
+.name, .position, .number {
+    font-family: 'Roboto';
+}
+
+.name {
+    font-size: 36px;
+    font-weight: 800;
+    padding-bottom: 4px;
+    border-bottom: 0.5px solid black;
+    margin-bottom: 20px;
+}
+
+.position {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.number {
+    font-size: 24px;
+    font-weight: 300;
 }
 
 .footer {

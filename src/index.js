@@ -1,9 +1,9 @@
 import './style.css';
 import './background.jpg';
-import { frontPagePost, secondPagePost } from './config';
+import { frontPagePost, firstMenu, secondMenu, thirdMenu, fourthMenu, fifthMenu, contacts} from './config';
 import { mainLoad } from './pageload';
 
-const navTab = ['Home', 'Order', 'About'];
+const navTab = ['Home', 'Order', 'Contact'];
 
 // initial page load will present the user the front page.
 mainLoad('Home', frontPagePost);
@@ -45,7 +45,9 @@ document.querySelectorAll('.tab').forEach((tabs) => {
         if ( tab.target.textContent === 'Home') {
             mainLoad('Home', frontPagePost);
         } else if ( tab.target.textContent === 'Order' ) {
-            mainLoad('Order', secondPagePost);
+            mainLoad('Order', [firstMenu, secondMenu, thirdMenu, fourthMenu, fifthMenu]);
+        } else if ( tab.target.textContent === 'Contact' ) {
+            mainLoad('Contact', contacts)
         }
     })
 })

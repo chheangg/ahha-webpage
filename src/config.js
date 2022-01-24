@@ -6,6 +6,10 @@ function Menu(name, price, recipe) {
     return { name, price, recipe }
 };
 
+function Contact(name, position, contact) {
+    return { name, position, contact }
+}
+
 const frontPagePost = [
     Post('A SECOND LIFE!',
     "\"Don't implore your mind to change what was to be, implore your mind to change and change for what's next! this relived version of the project will put to rest of a memory that's bitter.\"",
@@ -18,7 +22,7 @@ const frontPagePost = [
     'sub'), Post('WHERE\'S AHHA EXACTLY?','','sub')
 ];
 
-const secondPagePost = [
+const firstMenu =  [
     Menu('Kimchi Fried Rice and Fried Gyoza set.', 
     '10000៛', 
     'Kimchi fried rice, Fried Gyoza set, and Beverages'),
@@ -28,7 +32,10 @@ const secondPagePost = [
     Menu('Pasta Set.',
     '10000៛',
     'Mou\'s special pasta, Hasbrown. and Beverages'),
-    Menu('Kimchi Onigir (cheese is optional)',
+]
+
+const secondMenu = [
+    Menu('Kimchi Onigiri (cheese is optional)',
     '5000៛',
     'Kimchi, Rice, Egg/Spam/Ham'),
     Menu('Teriyaki Chicken Rice',
@@ -36,10 +43,68 @@ const secondPagePost = [
     'Chicken, Rice, Special sauce'),
     Menu('Mou\'s special pasta (Shrimp is optional)',
     '6500៛',
-    'Special recipe',
+    'Special recipe'),
     Menu('Quesadilla',
     '5000៛',
-    'Tortilla, Vegetables, Cheese, Meats'))
+    'Tortilla, Vegetables, Cheese, Meats'),
 ]
 
-export {frontPagePost, secondPagePost};
+const thirdMenu = [
+    Menu('Fried Gyoza (4 pieces)',
+    '5000៛',
+    'Pork/Shrimp dumping'),
+    Menu('Cheese bites (6 pieces)',
+    '2500៛',
+    'Cheese blocks'),
+    Menu('Chicken nuggets (4 pieces)',
+    '5000៛',
+    'Chicken breast, special mixture and spices'),
+    Menu('BBQ Skweres (2 sticks)',
+    '3500៛',
+    'Beet Bell peppers, Onion, and stuffs'),
+    Menu('Hashbrown (1 piece)',
+    '2500៛',
+    'Potato, special mixture, and spices'),
+]
+
+const fourthMenu = [
+    Menu('Fruity smoothie',
+    '7500៛',
+    'Banana/Strawberry/Blueberry'),
+    Menu('Chia seeds drink',
+    '9000៛',
+    'Chia seeds'),
+    Menu('Sparkling Chia Lemonade with berries',
+    '4500៛',
+    'Strawberry/Blueberry/Kiwi/Mixed'),
+    Menu('Beverages',
+    '-៛',
+    'Dasani/Coke/Sprite'),
+]
+
+const fifthMenu = [
+    Menu('S\'more',
+    '2000៛',
+    'Marshmellow, crackers, choclate'),
+    Menu('Shaved ice',
+    '2500៛',
+    'Green/red bean, ice, syrup'),
+    Menu('Candied fruits',
+    '2000៛',
+    'Strawberry/Apple/Banana with caramel or chocolate.'),
+    Menu('Matcha cake',
+    '5000៛',
+    'Special recipe (limited edition)'),
+]
+
+const contacts = [
+    Contact('Chheang', 'CEO', '069980981'),
+    Contact('Puthyrath', 'CEO', 'Prey'),
+    Contact('Malin', 'CEO', '0703xx2xx'),
+    Contact('Mary', 'CEO', '0103XX2XX'),
+    Contact('Monah', 'CEO', '0986XX1XX'),
+    Contact('Erissa', 'CEO', '0939XX7XX'),
+    Contact('Ponita', 'CEO', '0103XX2XX'),
+    Contact('Thika', 'CEO', '0103XX2XX'),
+]
+export {frontPagePost, firstMenu, secondMenu, thirdMenu, fourthMenu, fifthMenu, contacts};
