@@ -4,9 +4,11 @@ module.exports = {
     mode: 'development',
     entry: {
         index: "./src/index.js",
+        pageload: "./src/pageload.js",
+        config: "./src/config.js",
     },
     output: {
-        filename: 'main.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'inline-source-map',

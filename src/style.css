@@ -15,6 +15,7 @@ body {
 
 .nav-bar {
     position: absolute;
+    top: 0;
     left: 0;
     right: 0;
     margin: 16px;
@@ -79,14 +80,38 @@ body {
 }
 
 .map-wrapper {
-    padding: 24px;
-    text-align: center;
+    padding-left: 12px;
+    margin-left: 12px;
+    border-left: 4px solid rgba(1,22,39,1);
 }
 
-.title span {
+.title {
     font-size: 64px;
     font-weight: 600;
     color: rgba(1,22,39,1);
+}
+
+.main-content h2 span {
+    font-size: 28px;
+    font-weight: 500;
+    color: white;
+    background-color: rgba(1,22,39,1);
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+.main-content h2 {
+    margin-bottom: 20px;
+
+}
+
+.main-content p {
+    font-size: 22px;
+    font-weight: 400;
+    margin-left: 12px;
+    margin-bottom: 32px;
+    padding-left: 12px;
+    border-left: 4px solid rgba(1,22,39,1);
 }
 
 .main-content .main-text {
@@ -95,22 +120,7 @@ body {
     margin-bottom: 48px;
     padding-bottom: 24px;
     border-bottom: 0.5px solid rgba(1,22,39,1);
-}
-
-.main-content h2 span {
-    font-size: 32px;
-    font-weight: 500;
-    border-bottom: 4px solid rgba(1,22,39,1);
-}
-
-.main-content h2 {
-    margin-bottom: 16px;
-}
-
-.main-content p {
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 24px;
+    border-left: 0;
 }
 
 .second-content {
